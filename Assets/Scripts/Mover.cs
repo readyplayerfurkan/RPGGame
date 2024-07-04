@@ -8,6 +8,17 @@ public class Mover : MonoBehaviour
 
     void Update()
     {
-        agent.destination = targetTransform.position;
+        if (Input.GetMouseButtonDown(0))
+            MoveToCursor();
+    }
+
+    void MoveToCursor()
+    {
+        Ray lastRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        bool isRayHitSomething = Physics.Raycast(lastRay, out hit);
+
+        if (isRayHitSomething)
+            agent.destination = hit.point;
     }
 }
