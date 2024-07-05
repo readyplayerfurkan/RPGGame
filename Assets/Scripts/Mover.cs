@@ -3,7 +3,6 @@ using UnityEngine.AI;
 
 public class Mover : MonoBehaviour
 {
-    [SerializeField] private Transform targetTransform;
     [SerializeField] private NavMeshAgent agent;
 
     void Update()
